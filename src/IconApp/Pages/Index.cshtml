@@ -1,0 +1,96 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+
+    <div class="container">
+        <div class="mb-3">
+            <h5>Package Dimensions <span class="badge badge-secondary">New</span></h5>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="exampleFormControlInput1" class="form-label">Width (cm)</label>
+            </div>
+            <div class="col">
+                <label for="exampleFormControlInput1" class="form-label">Height (cm)</label>
+            </div>
+            <div class="col">
+                <label for="exampleFormControlInput1" class="form-label">Depth (cm)</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" asp-for="Width" placeholder="Enter Width">
+                <span class="alert-danger" asp-validation-for="Width"></span>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" asp-for="Height" placeholder="Enter Height">
+                <span class="alert-danger" asp-validation-for="Height"></span>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" asp-for="Depth" placeholder="Enter Depth">
+                <span class="alert-danger" asp-validation-for="Depth"></span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+        </div>
+        <div class="mb-3">
+            <h5>Package Weight (kg) <span class="badge badge-secondary">New</span></h5>
+            <input type="text" class="form-control" asp-for="Weight">
+            <span class="alert-danger" asp-validation-for="Weight"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-3">
+            @if (Model.IsPost == true)
+            {
+                <span>Re Calculate</span> 
+            }
+            else
+            {
+                <span>Calculate</span> 
+            }
+            
+        </button>
+
+        <div class="mb-3">
+        </div>
+
+        @{
+            if (Model.Packages.Where(x => x.IsValid).Any())
+            {
+                <div class="row">
+                    <h3>Available Packages <span class="badge badge-secondary"></span></h3>
+                </div>
+            }
+            else if (Model.IsPost == true)
+            {
+                <div class="alert alert-warning" role="alert">
+                    No Package is available for the provided Dimension and Weight
+                </div>
+
+            }
+
+            foreach (var pkg in Model.Packages.Where(x => x.IsValid))
+            {
+                <div class="row" style="padding-top:10px">
+                    <div class="col">
+                        <label class="form-label"> @pkg.CourierName </label>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">  €@pkg.FinalPrice</label>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-info" asp-area="" asp-page="/Order">Order Now</a>
+                    </div>
+
+                </div>
+            }
+        }
+    </div>
+
+
+</form>
