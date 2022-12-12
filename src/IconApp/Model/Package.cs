@@ -9,7 +9,7 @@
 
     public class PackageCourier
     {
-        PackageInput Package { get; set; }
+        public PackageInput Package { get; set; }
         public string CourierName { get; set; }
         public string DimensionsValidationMessage { get; set; }
         public string WeightValidationMessage { get; set; }

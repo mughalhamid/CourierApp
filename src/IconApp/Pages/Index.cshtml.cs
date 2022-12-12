@@ -1,4 +1,5 @@
 ﻿using IconApp.Model;
+using IconApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -8,10 +9,12 @@ namespace IconApp.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private ICourierService _courierService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, ICourierService courierService)
         {
             _logger = logger;
+            _courierService = courierService;
         }
 
         [Required]
@@ -51,7 +54,7 @@ namespace IconApp.Pages
 
             if (ModelState.IsValid)
             {
-                Packages = CourierService.GetAllPackages(new PackageInput()
+                Packages = _courierService.GetAllPackages(new PackageInput()
                 {
                     Dimension = new Dimension() { Depth = Depth, Height = Height, Width = Width },
                     Weight = Weight

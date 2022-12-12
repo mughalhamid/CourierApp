@@ -14,10 +14,14 @@
 
         public PackageCourier CalculatePackage(PackageInput packageInput)
         {
-            PackageCourier packageCourier = new PackageCourier();
+            PackageCourier packageCourier = new()
+            {
+                Package = packageInput,
+                CourierName = CourierName
+            };
+
             bool isValidDimensions = false;
             bool isValidWeight = false;
-            packageCourier.CourierName = CourierName;
 
             if (packageInput.Dimension.Value >= DimensionsLowerLimit)
             {
