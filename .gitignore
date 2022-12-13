@@ -1,2 +1,5 @@
 src/IconApp/bin/
 src/IconApp/obj/
+src/IconApp.Tests/bin/
+src/IconApp.Tests/obj/
+src/.vs/

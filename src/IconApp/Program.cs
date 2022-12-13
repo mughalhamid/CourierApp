@@ -1,5 +1,6 @@
 using IconApp.Infrastructure;
 using IconApp.Infrastructure.Repository;
+using IconApp.Model;
 using IconApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);

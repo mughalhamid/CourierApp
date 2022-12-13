@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconApp", "IconApp\IconApp.csproj", "{062D5AF6-255C-44A5-8B0D-50044FE26A54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IconApp", "IconApp\IconApp.csproj", "{062D5AF6-255C-44A5-8B0D-50044FE26A54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IconApp.Tests", "IconApp.Tests\IconApp.Tests.csproj", "{88504D08-44D5-43E6-BF72-B141A7956F9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{062D5AF6-255C-44A5-8B0D-50044FE26A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{062D5AF6-255C-44A5-8B0D-50044FE26A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{062D5AF6-255C-44A5-8B0D-50044FE26A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88504D08-44D5-43E6-BF72-B141A7956F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88504D08-44D5-43E6-BF72-B141A7956F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88504D08-44D5-43E6-BF72-B141A7956F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88504D08-44D5-43E6-BF72-B141A7956F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
